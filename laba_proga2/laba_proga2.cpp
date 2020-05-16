@@ -8,18 +8,8 @@
 int main()
 {
 	Shop store("Citrus");
-	Laptop lptp1("HP Pavilion", 1000, 13, 8);
-	Laptop lptp2("Macbook Pro", 1300, 16, 16);
-	Laptop lptp3("Acer Nitro 5", 1300, 16, 16);
-	Laptop lptp4("Lenovo Legion", 1000, 13, 8);
-	Laptop lptp5("Samsung", 400.5, 13, 4);
-	Laptop lptp6("LG", 600, 13, 6);
+	Laptop lptp1("HP Pavilion", "Intel Core-M", "AMD", 1000, 13, true);
 	store.addGood(&lptp1);
-	store.addGood(&lptp2);
-	store.addGood(&lptp3);
-	store.addGood(&lptp4);
-	store.addGood(&lptp5);
-	store.addGood(&lptp6);
 	store.showGoods();
 }
 

@@ -18,7 +18,7 @@ Shop::Shop(string nameShop) { // конструктор з параметром
 	this->goodsCounter = 0;
 	this->first = NULL;
 }
-Item* Shop::addGood(Laptop* item) {
+Item* Shop::addGood(Good* item) {
 	if (this->first == NULL)
 	{
 		this->first = new Item();
@@ -53,17 +53,11 @@ void Shop::showGoods()
 		Print();
 		cout << "-------------------" << endl;
 		while (temp->next != NULL) {
-			cout << "Name: " << temp->item->GetName() << endl;
-			cout << "Price: $" << temp->item->GetPrice() << endl;
-			cout << "Ram: " << temp->item->GetRam() << "Gb" << endl;
-			cout << "Diagonal: " << temp->item->GetDiagonal() << " sinches" << endl;
+			temp->item->Print();
 			cout << "********************" << endl;
 			temp = temp->next;
 		}
-		cout << "Name: " << temp->item->GetName() << endl;
-		cout << "Price: $" << temp->item->GetPrice() << endl;
-		cout << "Ram: " << temp->item->GetRam() << "Gb" << endl;
-		cout << "Diagonal: " << temp->item->GetDiagonal() << " inches" << endl;
+		temp->item->Print();
 		cout << "********************" << endl;
 		cout << "Number of goods: " << this->goodsCounter << endl;
 	}

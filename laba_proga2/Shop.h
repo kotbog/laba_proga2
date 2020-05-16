@@ -18,7 +18,7 @@ public:
 	Shop(string);
 	~Shop(); // деструктор
 	void Print();
-	Item* addGood(Laptop* item); // додати товар
+	Item* addGood(Good* item); // додати товар
 	void showGoods(); // показати список
 	void DeleteItem(string data);
 	void deleteList(); // видалити весь список
