@@ -23,5 +23,8 @@ string Good::GetName() {
 float Good::GetPrice() {
 	return this->price;
 }
+void Good::Print() {
+	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << endl;
+}
 
 

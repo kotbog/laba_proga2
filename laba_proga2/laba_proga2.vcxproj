@@ -151,12 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Good.cpp" />
     <ClCompile Include="laba_proga2.cpp" />
     <ClCompile Include="Laptop.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Computer.h" />
     <ClInclude Include="Good.h" />
     <ClInclude Include="Laptop.h" />
     <ClInclude Include="Shop.h" />

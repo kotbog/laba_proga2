@@ -1,18 +1,16 @@
 #pragma once
-#include "Good.h"
+#include "Computer.h"
 
-class Laptop : public Good 
+class Laptop : public Computer 
 {
 public:
 	Laptop();
 	~Laptop();
-	Laptop(string, float, float, int);
-	int GetRam(); // повертає значення оперативної пам'яті
+	Laptop(string, string, string, float, float, bool);
+	bool GetWebcam(); // повертає значення оперативної пам'яті
 	double GetDiagonal(); // повертає значення оперативної діагональ
-	//float GetPrice(); // повертає значення оперативної ціну
-	//string GetName(); // повертає значення оперативної ім'я
 private:
-	int Ram;
+	bool Webcam;
 	double Diagonal;
 };
 

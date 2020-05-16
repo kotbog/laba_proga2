@@ -6,7 +6,7 @@ using namespace std;
 
 struct Item
 {
-	Laptop* item; 
+	Good* item; 
 	Item* next; // вказівник на наступний елемент
 };
 
