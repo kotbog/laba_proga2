@@ -9,6 +9,7 @@ public:
 	Laptop(string, string, string, float, float, bool);
 	bool GetWebcam(); // повертає значення оперативної пам'яті
 	double GetDiagonal(); // повертає значення оперативної діагональ
+	virtual void Print() override;
 private:
 	bool Webcam;
 	double Diagonal;
