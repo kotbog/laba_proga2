@@ -157,6 +157,7 @@
     <ClCompile Include="InkPrinter.cpp" />
     <ClCompile Include="laba_proga2.cpp" />
     <ClCompile Include="Laptop.cpp" />
+    <ClCompile Include="LaserPrinter.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Good.h" />
     <ClInclude Include="InkPrinter.h" />
     <ClInclude Include="Laptop.h" />
+    <ClInclude Include="LaserPrinter.h" />
     <ClInclude Include="Printer.h" />
     <ClInclude Include="Shop.h" />
   </ItemGroup>
