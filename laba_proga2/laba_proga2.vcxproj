@@ -154,15 +154,19 @@
     <ClCompile Include="Computer.cpp" />
     <ClCompile Include="Desktop.cpp" />
     <ClCompile Include="Good.cpp" />
+    <ClCompile Include="InkPrinter.cpp" />
     <ClCompile Include="laba_proga2.cpp" />
     <ClCompile Include="Laptop.cpp" />
+    <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Computer.h" />
     <ClInclude Include="Desktop.h" />
     <ClInclude Include="Good.h" />
+    <ClInclude Include="InkPrinter.h" />
     <ClInclude Include="Laptop.h" />
+    <ClInclude Include="Printer.h" />
     <ClInclude Include="Shop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
