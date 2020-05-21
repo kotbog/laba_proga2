@@ -8,7 +8,7 @@ public:
 	InkPrinter(bool, int, bool, float, float, string);
 	int getColors();
 	bool getPhotoPrint();
-	virtual void Print() override;
+	void Print() override;
 private:
 	bool PhotoPrint;
 	int Colors;

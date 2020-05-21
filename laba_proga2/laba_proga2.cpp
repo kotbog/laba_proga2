@@ -2,14 +2,22 @@
 //
 #include "Shop.h"
 #include "Laptop.h"
-
+#include "Desktop.h"
+#include "InkPrinter.h"
+#include "LaserPrinter.h"
 #include <iostream>
 
 int main()
 {
-	Shop store("Citrus");
+	Shop store("Rozetka");
 	Laptop lptp1("HP Pavilion", "Intel Core-M", "AMD", 1000, 13, true);
+	Desktop desk1("HyperPc", "Intel", "AMD", 1400, 2, 700);
+	InkPrinter iprint(true, 4, true, 1.5, 500, "Canon");
+	LaserPrinter lprint(false, 24, true, 1.2, 700, "Epson");
 	store.addGood(&lptp1);
+	store.addGood(&iprint);
+	store.addGood(&lprint);
+	store.addGood(&desk1);
 	store.showGoods();
 }
 

@@ -23,6 +23,6 @@ int LaserPrinter::getSpeed() {
 void LaserPrinter::Print() {
 	cout << "Name: " << this->GetName() << "\nPrice: " << this->GetPrice() << endl;
 	cout << "Fax: " << this->getFax() << "\nWeight: " << this->getWeight() << endl;
-	cout << "Duplex: " << this->Duplex << "\Speed: " << this->Speed << "p/m\n" << endl;
+	cout << "Duplex: " << this->Duplex << "\nSpeed: " << this->Speed << " p/m\n" << endl;
 }
 
