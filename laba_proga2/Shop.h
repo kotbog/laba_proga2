@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "ShopItem.h"
 #include "Laptop.h"
 
 using namespace std;
@@ -10,22 +12,15 @@ struct Item
 	Item* next; // вказівник на наступний елемент
 };
 
-
 class Shop 
 {
 public:
 	Shop();
 	Shop(string);
 	~Shop(); // деструктор
-	void Print();
-	Item* addGood(Good* item); // додати товар
-	void showGoods(); // показати список
-	void DeleteItem(string data);
-	void deleteList(); // видалити весь список
-	Item* operator[] (string name);
+	void addShop(ShopItem&);
 private:
-	string nameShop;
-	int goodsCounter; // кількість товарів
-	Item* first;
+	string Name;
+	vector <ShopItem> shops;
 };
 

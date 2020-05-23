@@ -160,6 +160,7 @@
     <ClCompile Include="LaserPrinter.cpp" />
     <ClCompile Include="Printer.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="ShopItem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Computer.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="LaserPrinter.h" />
     <ClInclude Include="Printer.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="ShopItem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

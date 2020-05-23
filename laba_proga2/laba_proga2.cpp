@@ -5,20 +5,25 @@
 #include "Desktop.h"
 #include "InkPrinter.h"
 #include "LaserPrinter.h"
+#include "ShopItem.h"
 #include <iostream>
 
 int main()
 {
 	Shop store("Rozetka");
+	ShopItem new_store("Pushkina 5");
+	store.addShop(new_store);
 	Laptop lptp1("HP Pavilion", "Intel Core-M", "AMD", 1000, 13, true);
 	Desktop desk1("HyperPc", "Intel", "AMD", 1400, 2, 700);
 	InkPrinter iprint(true, 4, true, 1.5, 500, "Canon");
 	LaserPrinter lprint(false, 24, true, 1.2, 700, "Epson");
-	store.addGood(&lptp1);
-	store.addGood(&iprint);
-	store.addGood(&lprint);
-	store.addGood(&desk1);
-	store.showGoods();
+	new_store.addGood(&lptp1);
+	new_store.addGood(&iprint);
+	new_store.addGood(&lprint);
+	new_store.addGood(&desk1);
+	new_store.showGoods();
+
+	cout << "Total: " << new_store.totalPrice();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

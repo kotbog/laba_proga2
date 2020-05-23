@@ -26,3 +26,8 @@ void LaserPrinter::Print() {
 	cout << "Duplex: " << this->Duplex << "\nSpeed: " << this->Speed << " p/m\n" << endl;
 }
 
+LaserPrinter& LaserPrinter::operator == (LaserPrinter& item) {
+	if (this->getName() == item.getName()) {
+	
+	}
+}

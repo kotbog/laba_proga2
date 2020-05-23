@@ -1,112 +1,19 @@
 #include "Shop.h"
-#include <string>
-#include <iostream>
 
-using namespace std;  
-void Shop::Print() { 
-	cout << "Shop name: " << this->nameShop << endl;
-}
-Shop::Shop() : nameShop(""), goodsCounter(0) 
-{	
-	this->first = NULL;
-}
-Shop::~Shop() {
-	deleteList();
-}
-Shop::Shop(string nameShop) { // конструктор з параметром
-	this->nameShop = nameShop;
-	this->goodsCounter = 0;
-	this->first = NULL;
-}
-Item* Shop::addGood(Good* item) {
-	if (this->first == NULL)
-	{
-		this->first = new Item();
-		this->first->item =	item;
-		this->first->next = NULL;
-		this->goodsCounter += 1;
-		return this->first;
-	}
-	else {
-		Item* newItem, * temp;
-		newItem = new Item();
-		newItem->item = item;
-		newItem->next = NULL;
-		temp = this->first;
-		while (temp->next != NULL) {
-			temp = temp->next;
-		}
-		temp->next = newItem;
-		this->goodsCounter += 1;
-		return temp;
-	}
-}
-void Shop::showGoods()
+Shop::Shop() 
 {
-	if (this->first == NULL) // якщо дерево пусте
-	{
-		cout << "Empty list" << endl;
-		
-	}
-	else {
-		Item* temp = this->first;
-		Print();
-		cout << "-------------------" << endl;
-		while (temp->next != NULL) {
-			temp->item->Print();
-			cout << "********************" << endl;
-			temp = temp->next;
-		}
-		temp->item->Print();
-		cout << "********************" << endl;
-		cout << "Number of goods: " << this->goodsCounter << endl;
-	}
+	this->Name = "";
 }
-void Shop::DeleteItem(string data) {
-	Item* temp = this->first, *prev = NULL;
 
-	if (temp != NULL && temp->item->getName() == data)
-	{
-		this->first = temp->next;   
-		free(temp);  
-		this->goodsCounter -= 1;
-		return;
-	}
-
-
-	while (temp != NULL && temp->item->getName() != data)
-	{
-		prev = temp;
-		temp = temp->next;
-	}
- 
-	if (temp == NULL) return;
- 
-	prev->next = temp->next;
-	this->goodsCounter -= 1;
-	free(temp);
-}
-void Shop::deleteList()
+Shop::~Shop() 
 {
-	Item* p = this->first;
-	while (p->next != NULL)
-	{
-		Item* tmp;
-		tmp = p;
-		p = p->next;
-		delete tmp;
-	}
-	p = p->next;
-	delete p;
-	this->first = NULL;
 }
-Item* Shop::operator[] (string name) {
-	Item* tmp = this->first;
-	while (tmp) {
-		if (name == tmp->item->getName()) {
-			return tmp;
-		}
-		tmp = tmp->next;
-	}
-	return 0;
+
+Shop::Shop(string name) {
+	if(!name.empty())
+		this->Name = name;
+}
+
+void Shop::addShop(ShopItem& item) {
+	this->shops.push_back(item);
 }

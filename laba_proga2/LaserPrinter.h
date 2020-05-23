@@ -9,6 +9,7 @@ public:
 	bool getDublex();
 	int getSpeed();
 	void Print() override;
+	LaserPrinter& operator == (LaserPrinter&);
 private: 
 	int Speed;
 	bool Duplex;
