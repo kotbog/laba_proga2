@@ -65,7 +65,7 @@ void Shop::showGoods()
 void Shop::DeleteItem(string data) {
 	Item* temp = this->first, *prev = NULL;
 
-	if (temp != NULL && temp->item->GetName() == data)
+	if (temp != NULL && temp->item->getName() == data)
 	{
 		this->first = temp->next;   
 		free(temp);  
@@ -74,7 +74,7 @@ void Shop::DeleteItem(string data) {
 	}
 
 
-	while (temp != NULL && temp->item->GetName() != data)
+	while (temp != NULL && temp->item->getName() != data)
 	{
 		prev = temp;
 		temp = temp->next;
@@ -99,4 +99,14 @@ void Shop::deleteList()
 	p = p->next;
 	delete p;
 	this->first = NULL;
+}
+Item* Shop::operator[] (string name) {
+	Item* tmp = this->first;
+	while (tmp) {
+		if (name == tmp->item->getName()) {
+			return tmp;
+		}
+		tmp = tmp->next;
+	}
+	return 0;
 }

@@ -22,6 +22,6 @@ float Desktop::getWeight() {
 	return this->Weight;
 }
 void Desktop::Print() {
-	cout << "Name: " << this->GetName() << "\nPrice: " << this->GetPrice() << "\nProcessor: " << this->getProcessor() << "\nVideocard: " << this->getVideocard() << endl;
+	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << "\nProcessor: " << this->getProcessor() << "\nVideocard: " << this->getVideocard() << endl;
 	cout << "Weight: " << this->Weight << "\nPower: " << this->Power << endl;
 }

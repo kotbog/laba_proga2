@@ -21,7 +21,3 @@ bool Printer::getFax() {
 float Printer::getWeight() {
 	return this->Weight;
 }
-void Printer::Print() {
-	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << endl;
-	cout << "Fax: " << this->Fax << "\nWeight: " << this->Weight << endl;
-}

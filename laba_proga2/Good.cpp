@@ -17,14 +17,11 @@ Good::Good(string name, float price)
 		this->nameGood = name;
 	}
 }
-string Good::GetName() {
+string Good::getName() {
 	return this->nameGood;
 }
-float Good::GetPrice() {
+float Good::getPrice() {
 	return this->price;
-}
-void Good::Print() {
-	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << endl;
 }
 
 

@@ -22,6 +22,7 @@ public:
 	void showGoods(); // показати список
 	void DeleteItem(string data);
 	void deleteList(); // видалити весь список
+	Item* operator[] (string name);
 private:
 	string nameShop;
 	int goodsCounter; // кількість товарів

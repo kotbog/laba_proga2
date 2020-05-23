@@ -8,7 +8,7 @@ public:
 	Printer(bool, float, float, string);
 	bool getFax();
 	float getWeight();
-	void virtual Print() override;
+	void virtual Print() = 0;
 private:
 	bool Fax;
 	float Weight;

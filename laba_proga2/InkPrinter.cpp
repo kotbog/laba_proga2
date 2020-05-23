@@ -22,7 +22,7 @@ int InkPrinter::getColors() {
 	return this->Colors;
 }
 void InkPrinter::Print() {
-	cout << "Name: " << this->GetName() << "\nPrice: " << this->GetPrice() << endl;
+	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << endl;
 	cout << "Fax: " << this->getFax() << "\nWeight: " << this->getWeight() << endl;
 	cout << "Photo-Print: " << this->PhotoPrint << "\nColors: " << this->Colors << endl;
 }

@@ -13,9 +13,6 @@ Computer::Computer(string processor, string videocard, string name, float price)
 	this->Processor = processor;
 	this->Videocard = videocard;
 }
-void Computer::Print() {
-	cout << "Name: " << this->GetName() << "\nPrice: " << this->GetPrice() << "\nProcessor: " << this->Processor << "\nVideocard: " << this->Videocard <<endl;
-}
 string Computer::getProcessor() {
 	return this->Processor;
 }

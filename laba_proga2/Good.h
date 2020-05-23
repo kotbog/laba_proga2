@@ -10,9 +10,9 @@ public:
 	Good(); // конструктор за замовчуванням
 	~Good();
 	Good(string, float);
-	string GetName();
-	float GetPrice();
-	virtual void Print();
+	string getName();
+	float getPrice();
+	virtual void Print() = 0;
 protected:
 	string nameGood; 
 	float price;

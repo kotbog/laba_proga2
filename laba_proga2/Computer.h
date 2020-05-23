@@ -6,7 +6,7 @@ public:
 	Computer();
 	~Computer();
 	Computer(string, string, string, float);
-	virtual void Print() override;
+	virtual void Print() = 0;
 	string getProcessor();
 	string getVideocard();
 private:
