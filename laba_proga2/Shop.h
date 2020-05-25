@@ -6,12 +6,6 @@
 
 using namespace std;
 
-struct Item
-{
-	Good* item; 
-	Item* next; // вказівник на наступний елемент
-};
-
 class Shop 
 {
 public:
@@ -19,6 +13,7 @@ public:
 	Shop(string);
 	~Shop(); // деструктор
 	void addShop(ShopItem&);
+	void checkGood(string name);
 private:
 	string Name;
 	vector <ShopItem> shops;

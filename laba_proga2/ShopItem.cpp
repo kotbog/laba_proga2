@@ -10,7 +10,7 @@ ShopItem::ShopItem() : street(""), goodsCounter(0)
 	this->first = NULL;
 }
 ShopItem::~ShopItem() {
-	deleteList();
+
 }
 ShopItem::ShopItem(string streetName) { // конструктор з параметром
 	this->street = streetName;
@@ -52,7 +52,6 @@ void ShopItem::showGoods()
 	}
 	else {
 		Item* temp = this->first;
-		Print();
 		cout << "-------------------" << endl;
 		while (temp->next != NULL) {
 			temp->item->Print();
@@ -121,6 +120,36 @@ float ShopItem::totalPrice() {
 	}
 	return total;
 }
+bool ShopItem::isExist(string name) {
+	Item* tmp = this->first;
+	while (tmp) {
+		if (name == tmp->item->getName()) {
+			return true;
+		}
+		tmp = tmp->next;
+	}
+	return false;
+}
+string ShopItem::getStreet() {
+	return this->street;
+}
+ostream& operator << (ostream& out, ShopItem& item) {
+	return out << item.street << endl;
+}
+ShopItem& ShopItem::operator= (const ShopItem& str)
+{
+	// Если m_data уже имеет значение, то удаляем это значение
+	if (this->first) {
+		delete[] this->first;
+ 	}
+	this->first = str.first;
+	this->goodsCounter = str.goodsCounter;
+	this->street = str.street;
+	
+	return *this;
+}
+
+
 /*Item* Shop::sort()
 {
 	Item* new_root = NULL;

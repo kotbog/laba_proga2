@@ -26,8 +26,19 @@ void LaserPrinter::Print() {
 	cout << "Duplex: " << this->Duplex << "\nSpeed: " << this->Speed << " p/m\n" << endl;
 }
 
-LaserPrinter& LaserPrinter::operator == (LaserPrinter& item) {
+bool LaserPrinter::operator == (LaserPrinter& item) {
 	if (this->getName() == item.getName()) {
-	
+		return 1;
 	}
+	return 0;
+}
+LaserPrinter& LaserPrinter::operator= (const LaserPrinter& str)
+{
+	// ≈сли m_data уже имеет значение, то удал€ем это значение
+	this->Duplex = str.Duplex;
+	this->Speed = str.Speed;
+
+
+
+	return *this;
 }

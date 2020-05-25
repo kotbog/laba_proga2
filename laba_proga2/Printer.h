@@ -12,6 +12,5 @@ public:
 private:
 	bool Fax;
 	float Weight;
-	Item* first;
 };
 

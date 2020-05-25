@@ -22,8 +22,8 @@ int main()
 	new_store.addGood(&lprint);
 	new_store.addGood(&desk1);
 	new_store.showGoods();
-
 	cout << "Total: " << new_store.totalPrice();
+	store.checkGood("HP Pavilion");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

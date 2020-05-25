@@ -9,7 +9,8 @@ public:
 	bool getDublex();
 	int getSpeed();
 	void Print() override;
-	LaserPrinter& operator == (LaserPrinter&);
+	bool operator == (LaserPrinter&);
+	LaserPrinter& operator= (const LaserPrinter& str);
 private: 
 	int Speed;
 	bool Duplex;

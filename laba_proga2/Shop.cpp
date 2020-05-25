@@ -17,3 +17,11 @@ Shop::Shop(string name) {
 void Shop::addShop(ShopItem& item) {
 	this->shops.push_back(item);
 }
+void Shop::checkGood(string name) {
+	cout << name;
+	for (int i = 0; i < this->shops.size(); i++) {
+		if (this->shops[0].isExist(name)) {
+			cout << "333" << endl;
+		}
+	}
+}
