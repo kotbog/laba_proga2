@@ -134,7 +134,7 @@ string ShopItem::getStreet() {
 	return this->street;
 }
 ostream& operator << (ostream& out, ShopItem& item) {
-	return out << item.street << endl;
+	return out << item.street << "\tnumber of goods: " << item.goodsCounter << endl;
 }
 ShopItem& ShopItem::operator= (const ShopItem& str)
 {
@@ -148,8 +148,12 @@ ShopItem& ShopItem::operator= (const ShopItem& str)
 	
 	return *this;
 }
-
-
+bool ShopItem::operator==(const ShopItem& item) {
+	if (this->street == item.street) {
+		return 1;
+	}
+	return 1;
+}
 /*Item* Shop::sort()
 {
 	Item* new_root = NULL;

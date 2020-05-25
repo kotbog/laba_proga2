@@ -14,6 +14,8 @@ public:
 	~Shop(); // деструктор
 	void addShop(ShopItem&);
 	void checkGood(string name);
+	void showAll();
+	ShopItem& searchObj(const ShopItem& item);
 private:
 	string Name;
 	vector <ShopItem> shops;

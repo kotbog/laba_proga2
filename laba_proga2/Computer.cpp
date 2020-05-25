@@ -19,3 +19,9 @@ string Computer::getProcessor() {
 string Computer::getVideocard() {
 	return this->Videocard;
 }
+Computer::Computer(const Computer& item) {
+	this->nameGood = item.nameGood;
+	this->price = item.price;
+	this->Processor = item.Processor;
+	this->Videocard = item.Videocard;
+}

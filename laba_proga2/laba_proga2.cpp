@@ -7,18 +7,71 @@
 #include "LaserPrinter.h"
 #include "ShopItem.h"
 #include <iostream>
+#include <string>
+
+
+void showMenu(Shop& store) {
+	int way = 0;
+	string str;
+	cout << "1. Add store\n";
+	cout << "2. Add good\n";
+	cout << "3. Show all stores\n";
+	cout << "Choose: ";
+	cin >> way;
+	if (way == 1) {
+		cout << "Address: ";
+		cin.ignore();
+		getline(cin, str);
+		ShopItem* item = new ShopItem(str);
+		store.addShop(*item);
+	}
+	else if(way == 2){
+		cout << "Address: ";
+		cin.ignore();
+		getline(cin, str);
+		ShopItem* item = &(store.searchObj(str));
+		if (item) {
+			cout << "What would you want to add?" << endl;
+			cout << "1. Laptop\n";
+			cout << "2. Desktop\n";
+			cout << "3. Laser Printer\n";
+			cout << "4. Ink Printer\n";
+			cin >> way;
+			if (way == 1) {
+				Good* good = new Laptop();
+				item->addGood(good);
+			}
+
+		}
+	}
+	else if(way == 3){
+		store.showAll();
+		cout << 1;
+	}else {
+		cout << "Error!!! Try again!\n";
+		return;
+	}
+	showMenu(store);
+}
+
 
 int main()
 {
-	Shop store("Rozetka");
-	ShopItem new_store("Pushkina 5");
+	string text;
+	cout << "Name of store: ";
+	cin >> text;
+	Shop store(text);
+	showMenu(store);
+	/*ShopItem new_store("Pushkina 5");
 	store.addShop(new_store);
-
+	ShopItem new_store2("Polytechnichna 1");
+	store.addShop(new_store2);
 	Laptop lptp1("HP Pavilion", "Intel Core-M", "AMD", 1000, 13, true);
 	Desktop desk1("HyperPc", "Intel", "AMD", 1400, 2, 700);
 	InkPrinter iprint(true, 4, true, 1.5, 500, "Canon");
 	LaserPrinter lprint(false, 24, true, 1.2, 700, "Epson");
 	LaserPrinter a = lprint;
+	new_store2.addGood(&iprint);
 	new_store.addGood(&lptp1);
 	new_store.addGood(&iprint);
 	new_store.addGood(&a);
@@ -28,7 +81,8 @@ int main()
 		cout << 1 << endl;
 	}
 	store.checkGood("Canon");
-	cout << "Total: " << new_store.totalPrice();
+	cout << "Total: " << new_store.totalPrice();*/
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
