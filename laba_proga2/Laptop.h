@@ -10,6 +10,7 @@ public:
 	bool GetWebcam(); // повертає значення оперативної пам'яті
 	double GetDiagonal(); // повертає значення оперативної діагональ
 	virtual void Print() override;
+	Laptop& operator = (Laptop&);
 private:
 	bool Webcam;
 	double Diagonal;

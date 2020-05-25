@@ -22,7 +22,17 @@ int InkPrinter::getColors() {
 	return this->Colors;
 }
 void InkPrinter::Print() {
-	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << endl;
-	cout << "Fax: " << this->getFax() << "\nWeight: " << this->getWeight() << endl;
+	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << endl;
+	cout << "Fax: " << this->Fax << "\nWeight: " << this->Weight << endl;
 	cout << "Photo-Print: " << this->PhotoPrint << "\nColors: " << this->Colors << endl;
+}
+InkPrinter& InkPrinter::operator= (const InkPrinter& str)
+{
+	this->Colors = str.Colors;
+	this->PhotoPrint = str.PhotoPrint;
+	this->nameGood = str.nameGood;
+	this->price = str.price;
+	this->Fax = str.Fax;
+	this->Weight = str.Weight;
+	return *this;
 }

@@ -9,7 +9,7 @@ public:
 	virtual void Print() = 0;
 	string getProcessor();
 	string getVideocard();
-private:
+protected:
 	string Processor;
 	string Videocard;
 };

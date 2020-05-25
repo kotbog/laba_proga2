@@ -24,6 +24,16 @@ double Laptop::GetDiagonal() {
 	return this->Diagonal;
 }
 void Laptop::Print() {
-	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << "\nProcessor: " << this->getProcessor() << "\nVideocard: " << this->getVideocard() << endl;
+	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << "\nProcessor: " << this->Processor << "\nVideocard: " << this->Videocard << endl;
 	cout << "Webcam: " << this->Webcam << "\nDiagonal: " << this->Diagonal << endl;
+}
+
+Laptop& Laptop::operator= (Laptop& str) {
+	this->Diagonal = str.Diagonal;
+	this->Videocard = str.Videocard;
+	this->nameGood = str.nameGood;
+	this->price = str.price;
+	this->Processor = str.Processor;
+	this->Webcam = str.Webcam;
+	return *this;
 }

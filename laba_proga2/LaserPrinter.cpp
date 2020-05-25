@@ -21,9 +21,9 @@ int LaserPrinter::getSpeed() {
 	return this->Speed;
 }
 void LaserPrinter::Print() {
-	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << endl;
-	cout << "Fax: " << this->getFax() << "\nWeight: " << this->getWeight() << endl;
-	cout << "Duplex: " << this->Duplex << "\nSpeed: " << this->Speed << " p/m\n" << endl;
+	cout << "Name: " << this->nameGood << "\tPrice: " << this->price << endl;
+	cout << "Fax: " << this->Fax << "\tWeight: " << this->Weight << endl;
+	cout << "Duplex: " << this->Duplex << "\tSpeed: " << this->Speed << " p/m\n" << endl;
 }
 
 bool LaserPrinter::operator == (LaserPrinter& item) {
@@ -34,11 +34,11 @@ bool LaserPrinter::operator == (LaserPrinter& item) {
 }
 LaserPrinter& LaserPrinter::operator= (const LaserPrinter& str)
 {
-	// ≈сли m_data уже имеет значение, то удал€ем это значение
 	this->Duplex = str.Duplex;
 	this->Speed = str.Speed;
-
-
-
+	this->nameGood = str.nameGood;
+	this->price = str.price;
+	this->Fax = str.Fax;
+	this->Weight = str.Weight;
 	return *this;
 }

@@ -9,6 +9,7 @@ public:
 	int getPower();
 	float getWeight();
 	virtual void Print() override;
+	Desktop& operator = (Desktop&);
 private:
 	float Weight;
 	int Power;

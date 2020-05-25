@@ -9,6 +9,7 @@ public:
 	int getColors();
 	bool getPhotoPrint();
 	void Print() override;
+	InkPrinter& operator= (const InkPrinter& str);
 private:
 	bool PhotoPrint;
 	int Colors;

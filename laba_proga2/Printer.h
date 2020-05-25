@@ -9,7 +9,7 @@ public:
 	bool getFax();
 	float getWeight();
 	void virtual Print() = 0;
-private:
+protected:
 	bool Fax;
 	float Weight;
 };

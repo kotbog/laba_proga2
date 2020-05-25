@@ -22,6 +22,15 @@ float Desktop::getWeight() {
 	return this->Weight;
 }
 void Desktop::Print() {
-	cout << "Name: " << this->getName() << "\nPrice: " << this->getPrice() << "\nProcessor: " << this->getProcessor() << "\nVideocard: " << this->getVideocard() << endl;
+	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << "\nProcessor: " << this->Processor << "\nVideocard: " << this->Videocard << endl;
 	cout << "Weight: " << this->Weight << "\nPower: " << this->Power << endl;
+}
+Desktop& Desktop::operator = (Desktop& str) {
+	this->Weight = str.Weight;
+	this->Videocard = str.Videocard;
+	this->nameGood = str.nameGood;
+	this->price = str.price;
+	this->Processor = str.Processor;
+	this->Power = str.Power;
+	return *this;
 }
