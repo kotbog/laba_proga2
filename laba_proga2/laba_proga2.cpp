@@ -14,7 +14,7 @@ ShopItem* searchByAddress(Shop& store) {
 	cout << "Address: ";
 	cin.ignore();
 	getline(cin, str);
-	ShopItem* item = &(store.searchObj(str));
+	ShopItem* item = store.searchObj(str);
 	return item;
 }
 void showMenu(Shop& store) {
@@ -25,6 +25,7 @@ void showMenu(Shop& store) {
 	cout << "3. Show all stores\n";
 	cout << "4. Show all goods\n";
 	cout << "5. Delete good\n";
+	cout << "6. Ñheck availability\n";
 	cout << "Choose: ";
 	cin >> way;
 	if (way == 1) {
@@ -32,7 +33,12 @@ void showMenu(Shop& store) {
 		cin.ignore();
 		getline(cin, str);
 		ShopItem* item = new ShopItem(str);
-		store.addShop(*item);
+		if (store.searchObj(*item) == NULL) {
+			store.addShop(*item);
+		}
+		else {
+			cout << "Error! There is already " << str << endl;
+		}
 	}
 	else if(way == 2){
 		ShopItem* item = searchByAddress(store);
@@ -69,6 +75,9 @@ void showMenu(Shop& store) {
 			}
 
 		}
+		else {
+			cout << "There already is this shop";
+		}
 	}
 	else if(way == 3){
 		store.showAll();
@@ -83,7 +92,13 @@ void showMenu(Shop& store) {
 		cin >> str;
 		*item - str;
 
-	}else{
+	}
+	else if (way == 6) {
+		cout << "Name: ";
+		cin >> str;
+		store.checkGood(str);
+	}
+	else{
 		cout << "Error!!! Try again!\n";
 		return;
 	}

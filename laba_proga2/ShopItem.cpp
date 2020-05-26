@@ -5,9 +5,12 @@
 
 using namespace std;
 
+int ShopItem::allShopsCounter = 0;
+
 ShopItem::ShopItem() : street(""), goodsCounter(0)
 {
 	this->first = NULL;
+	this->allShopsCounter++;
 }
 ShopItem::~ShopItem() {
 
@@ -16,6 +19,7 @@ ShopItem::ShopItem(string streetName) { // конструктор з параметром
 	this->street = streetName;
 	this->goodsCounter = 0;
 	this->first = NULL;
+	this->allShopsCounter++;
 }
 
 
@@ -122,7 +126,7 @@ float ShopItem::totalPrice() {
 }
 bool ShopItem::isExist(string name) {
 	Item* tmp = this->first;
-	while (tmp) {
+	while (tmp != NULL) {
 		if (name == tmp->item->getName()) {
 			return true;
 		}
@@ -134,7 +138,7 @@ string ShopItem::getStreet() {
 	return this->street;
 }
 ostream& operator << (ostream& out, ShopItem& item) {
-	return out << item.street << "\tnumber of goods: " << item.goodsCounter << endl;
+	return out << item.street << "\t" << item.goodsCounter << " goods" << endl;
 }
 ShopItem& ShopItem::operator= (const ShopItem& str)
 {
@@ -152,11 +156,14 @@ bool ShopItem::operator==(const ShopItem& item) {
 	if (this->street == item.street) {
 		return 1;
 	}
-	return 1;
+	return 0;
 }
 ShopItem& ShopItem::operator - (string name) {
 	DeleteItem(name);
 	return *this;
+}
+int ShopItem::getShopsCounter() {
+	return allShopsCounter;
 }
 /*Item* Shop::sort()
 {

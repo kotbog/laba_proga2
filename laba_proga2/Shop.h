@@ -15,8 +15,9 @@ public:
 	void addShop(ShopItem&);
 	void checkGood(string name);
 	void showAll();
-	ShopItem& searchObj(const ShopItem& item);
+	ShopItem* searchObj(const ShopItem& item);
 private:
+	//T phoneNumber;
 	string Name;
 	vector <ShopItem> shops;
 };

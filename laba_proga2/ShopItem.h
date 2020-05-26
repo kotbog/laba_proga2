@@ -29,10 +29,11 @@ public:
 	ShopItem& operator= (const ShopItem& str);
 	bool operator == (const ShopItem& item);
 	ShopItem& operator - (string name);
-	
+	static int getShopsCounter();
 private:
 	string street;
 	Item* first;
 	int goodsCounter;
+	static int allShopsCounter;
 };
 
