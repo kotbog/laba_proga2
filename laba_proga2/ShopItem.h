@@ -28,6 +28,8 @@ public:
 	friend ostream& operator << (ostream&, ShopItem&);
 	ShopItem& operator= (const ShopItem& str);
 	bool operator == (const ShopItem& item);
+	ShopItem& operator - (string name);
+	
 private:
 	string street;
 	Item* first;

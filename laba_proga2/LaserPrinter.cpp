@@ -42,3 +42,16 @@ LaserPrinter& LaserPrinter::operator= (const LaserPrinter& str)
 	this->Weight = str.Weight;
 	return *this;
 }
+istream& operator>> (istream& in, LaserPrinter& item)
+{
+	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
+	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	in >> item.nameGood;
+	in >> item.price;
+	in >> item.Fax;
+	in >> item.Speed;
+	in >> item.Duplex;
+	in >> item.Weight;
+
+	return in;
+}

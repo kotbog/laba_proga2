@@ -9,13 +9,22 @@
 #include <iostream>
 #include <string>
 
-
+ShopItem* searchByAddress(Shop& store) {
+	string str;
+	cout << "Address: ";
+	cin.ignore();
+	getline(cin, str);
+	ShopItem* item = &(store.searchObj(str));
+	return item;
+}
 void showMenu(Shop& store) {
 	int way = 0;
 	string str;
 	cout << "1. Add store\n";
 	cout << "2. Add good\n";
 	cout << "3. Show all stores\n";
+	cout << "4. Show all goods\n";
+	cout << "5. Delete good\n";
 	cout << "Choose: ";
 	cin >> way;
 	if (way == 1) {
@@ -26,11 +35,7 @@ void showMenu(Shop& store) {
 		store.addShop(*item);
 	}
 	else if(way == 2){
-		Good* good;
-		cout << "Address: ";
-		cin.ignore();
-		getline(cin, str);
-		ShopItem* item = &(store.searchObj(str));
+		ShopItem* item = searchByAddress(store);
 		if (item) {
 			cout << "What would you want to add?" << endl;
 			cout << "1. Laptop\n";
@@ -39,25 +44,46 @@ void showMenu(Shop& store) {
 			cout << "4. Ink Printer\n";
 			cin >> way;
 			if (way == 1) {
-				good = new Laptop();
+				Laptop* good = new Laptop();
+				cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Diagonal, Webcam ): \n";
+				cin >> *(good);
+				item->addGood(good);
 			}
 			else if (way == 2) {
-				good = new Desktop();
+				Desktop* good = new Desktop();
+				cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Power, Weight ): \n";
 				cin >> *(good);
+				item->addGood(good);
 			}
 			else if (way == 3) {
-				good = new LaserPrinter();
+				LaserPrinter* good = new LaserPrinter();
+				cout << "Input with an ENTER( nameGood, price, Fax(bool), Speed, Duplex, Weight ): \n";
+				cin >> *(good);
+				item->addGood(good);
 			}
 			else if (way == 4) {
-				good = new InkPrinter();
+				InkPrinter* good = new InkPrinter();
+				cout << "Input with an ENTER( nameGood, price, Fax(bool), PhotoPrint(bool), Colors, Weight ): \n";
+				cin >> *(good);
+				item->addGood(good);
 			}
+
 		}
-		item->addGood(good);
 	}
 	else if(way == 3){
 		store.showAll();
-		cout << 1;
-	}else {
+	}
+	else if (way == 4) {
+		ShopItem* item = searchByAddress(store);
+		item->showGoods();
+	}
+	else if (way == 5) {
+		ShopItem* item = searchByAddress(store);
+		cout << "Name: ";
+		cin >> str;
+		*item - str;
+
+	}else{
 		cout << "Error!!! Try again!\n";
 		return;
 	}

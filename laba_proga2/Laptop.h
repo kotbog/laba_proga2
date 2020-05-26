@@ -11,6 +11,7 @@ public:
 	double GetDiagonal(); // повертає значення оперативної діагональ
 	virtual void Print() override;
 	Laptop& operator = (Laptop&);
+	friend istream& operator>> (istream& in, Laptop& item);
 private:
 	bool Webcam;
 	double Diagonal;

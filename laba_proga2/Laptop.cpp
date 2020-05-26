@@ -37,3 +37,16 @@ Laptop& Laptop::operator= (Laptop& str) {
 	this->Webcam = str.Webcam;
 	return *this;
 }
+istream& operator>> (istream& in, Laptop& item)
+{
+	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
+	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	in >> item.nameGood;
+	in >> item.price;
+	in >> item.Processor;
+	in >> item.Videocard;
+	in >> item.Diagonal;
+	in >> item.Webcam;
+
+	return in;
+}

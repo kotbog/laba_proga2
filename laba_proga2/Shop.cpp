@@ -15,9 +15,7 @@ Shop::Shop(string name) {
 }
 
 void Shop::addShop(ShopItem& item) {
-	if (this->searchObj(item) == item) {
-		this->shops.push_back(item);
-	}
+	this->shops.push_back(item);
 }
 void Shop::showAll() {
 	for (int i = 0; i < shops.size(); i++) {

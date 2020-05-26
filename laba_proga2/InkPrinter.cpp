@@ -36,3 +36,16 @@ InkPrinter& InkPrinter::operator= (const InkPrinter& str)
 	this->Weight = str.Weight;
 	return *this;
 }
+istream& operator>> (istream& in, InkPrinter& item)
+{
+	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
+	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	in >> item.nameGood;
+	in >> item.price;
+	in >> item.Fax;
+	in >> item.PhotoPrint;
+	in >> item.Colors;
+	in >> item.Weight;
+
+	return in;
+}

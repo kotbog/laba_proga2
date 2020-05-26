@@ -154,6 +154,10 @@ bool ShopItem::operator==(const ShopItem& item) {
 	}
 	return 1;
 }
+ShopItem& ShopItem::operator - (string name) {
+	DeleteItem(name);
+	return *this;
+}
 /*Item* Shop::sort()
 {
 	Item* new_root = NULL;

@@ -11,6 +11,7 @@ public:
 	void Print() override;
 	bool operator == (LaserPrinter&);
 	LaserPrinter& operator= (const LaserPrinter& str);
+	friend istream& operator>> (istream& in, LaserPrinter& item);
 private: 
 	int Speed;
 	bool Duplex;
