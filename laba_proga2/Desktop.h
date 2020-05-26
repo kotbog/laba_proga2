@@ -10,6 +10,7 @@ public:
 	float getWeight();
 	virtual void Print() override;
 	Desktop& operator = (Desktop&);
+	friend istream& operator>> (istream& in, Desktop& item);
 private:
 	float Weight;
 	int Power;

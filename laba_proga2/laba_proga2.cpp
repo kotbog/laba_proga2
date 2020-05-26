@@ -26,6 +26,7 @@ void showMenu(Shop& store) {
 		store.addShop(*item);
 	}
 	else if(way == 2){
+		Good* good;
 		cout << "Address: ";
 		cin.ignore();
 		getline(cin, str);
@@ -38,11 +39,20 @@ void showMenu(Shop& store) {
 			cout << "4. Ink Printer\n";
 			cin >> way;
 			if (way == 1) {
-				Good* good = new Laptop();
-				item->addGood(good);
+				good = new Laptop();
 			}
-
+			else if (way == 2) {
+				good = new Desktop();
+				cin >> *(good);
+			}
+			else if (way == 3) {
+				good = new LaserPrinter();
+			}
+			else if (way == 4) {
+				good = new InkPrinter();
+			}
 		}
+		item->addGood(good);
 	}
 	else if(way == 3){
 		store.showAll();

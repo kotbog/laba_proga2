@@ -34,3 +34,16 @@ Desktop& Desktop::operator = (Desktop& str) {
 	this->Power = str.Power;
 	return *this;
 }
+istream& operator>> (istream& in, Desktop& item)
+{
+	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
+	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	in >> item.nameGood;
+	in >> item.price;
+	in >> item.Processor;
+	in >> item.Videocard;
+	in >> item.Power;
+	in >> item.Weight;
+
+	return in;
+}
