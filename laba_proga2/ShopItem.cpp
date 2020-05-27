@@ -169,7 +169,8 @@ ShopItem& ShopItem::operator--() {
 	ShopItem::allShopsCounter - 1;
 	return *this;
 }
-/*Item* Shop::sort()
+/*
+Item* Shop::sort()
 {
 	Item* new_root = NULL;
 
