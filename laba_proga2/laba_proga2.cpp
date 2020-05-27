@@ -26,6 +26,7 @@ void showMenu(Shop& store) {
 	cout << "4. Show all goods\n";
 	cout << "5. Delete good\n";
 	cout << "6. Ñheck availability\n";
+	cout << "7. Delete Shop\n";
 	cout << "Choose: ";
 	cin >> way;
 	if (way == 1) {
@@ -37,6 +38,7 @@ void showMenu(Shop& store) {
 			store.addShop(*item);
 		}
 		else {
+			store.deleteShop(item);
 			cout << "Error! There is already " << str << endl;
 		}
 	}
@@ -97,6 +99,10 @@ void showMenu(Shop& store) {
 		cout << "Name: ";
 		cin >> str;
 		store.checkGood(str);
+	}
+	else if (way == 7) {
+		ShopItem* item = searchByAddress(store);
+		store.deleteShop(item);
 	}
 	else{
 		cout << "Error!!! Try again!\n";

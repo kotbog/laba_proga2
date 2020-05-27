@@ -30,6 +30,7 @@ public:
 	bool operator == (const ShopItem& item);
 	ShopItem& operator - (string name);
 	static int getShopsCounter();
+	ShopItem& operator--();
 private:
 	string street;
 	Item* first;

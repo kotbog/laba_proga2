@@ -153,7 +153,7 @@ ShopItem& ShopItem::operator= (const ShopItem& str)
 	return *this;
 }
 bool ShopItem::operator==(const ShopItem& item) {
-	if (this->street == item.street) {
+	if (this->street == item.street && this->goodsCounter == item.goodsCounter) {
 		return 1;
 	}
 	return 0;
@@ -164,6 +164,10 @@ ShopItem& ShopItem::operator - (string name) {
 }
 int ShopItem::getShopsCounter() {
 	return allShopsCounter;
+}
+ShopItem& ShopItem::operator--() {
+	ShopItem::allShopsCounter - 1;
+	return *this;
 }
 /*Item* Shop::sort()
 {

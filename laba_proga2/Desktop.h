@@ -1,5 +1,6 @@
 #pragma once
 #include "Computer.h"
+
 class Desktop : public Computer
 {
 public:
@@ -12,7 +13,7 @@ public:
 	Desktop& operator = (Desktop&);
 	friend istream& operator>> (istream& in, Desktop& item);
 private:
-	float Weight;
-	int Power;
+	int Weight;
+	float Power;
 };
 
