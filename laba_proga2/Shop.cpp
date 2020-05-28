@@ -42,8 +42,8 @@ void Shop::checkGood(string name) {
 void Shop::deleteShop(ShopItem* item) {
 	for (int i = 0; i < this->shops.size(); i++) {
 		if (shops[i] == *item) {
+			ShopItem::decrCounter();
 			shops.erase(shops.begin() + i);
-			--shops[i];
 			return;
 		}
 	}

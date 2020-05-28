@@ -8,7 +8,7 @@ class Good
 {
 public:
 	Good(); // конструктор за замовчуванням
-	~Good();
+	virtual ~Good();
 	Good(string, float);
 	string getName();
 	float getPrice();

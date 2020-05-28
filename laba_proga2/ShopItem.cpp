@@ -9,8 +9,8 @@ int ShopItem::allShopsCounter = 0;
 
 ShopItem::ShopItem() : street(""), goodsCounter(0)
 {
-	this->first = NULL;
-	this->allShopsCounter++;
+	this->pLst = this->lst.begin();
+	//this->allShopsCounter++;
 }
 ShopItem::~ShopItem() {
 
@@ -18,38 +18,19 @@ ShopItem::~ShopItem() {
 ShopItem::ShopItem(string streetName) { // конструктор з параметром
 	this->street = streetName;
 	this->goodsCounter = 0;
-	this->first = NULL;
-	this->allShopsCounter++;
+	this->pLst = this->lst.begin();
+	//this->allShopsCounter++;
 }
 
 
 
-Item* ShopItem::addGood(Good* item) {
-	if (this->first == NULL)
-	{
-		this->first = new Item();
-		this->first->item = item;
-		this->first->next = NULL;
-		this->goodsCounter += 1;
-		return this->first;
-	}
-	else {
-		Item* newItem, * temp;
-		newItem = new Item();
-		newItem->item = item;
-		newItem->next = NULL;
-		temp = this->first;
-		while (temp->next != NULL) {
-			temp = temp->next;
-		}
-		temp->next = newItem;
-		this->goodsCounter += 1;
-		return temp;
-	}
+void ShopItem::addGood(Good* item) {
+	this->lst.push_back(item);
 }
+
 void ShopItem::showGoods()
-{
-	if (this->first == NULL) // якщо дерево пусте
+{/*
+	if (this->pLst == NULL) // якщо дерево пусте
 	{
 		cout << "Empty list" << endl;
 
@@ -65,13 +46,20 @@ void ShopItem::showGoods()
 		temp->item->Print();
 		cout << "********************" << endl;
 		cout << "Number of goods: " << this->goodsCounter << endl;
+	}*/
+	this->pLst = this->lst.begin();
+	while (this->pLst != this->lst.end()) {
+		(*(this->pLst))->Print();
+		this->pLst++;
 	}
 }
 void ShopItem::DeleteItem(string data) {
+	/*
 	Item* temp = this->first, * prev = NULL;
 
 	if (temp != NULL && temp->item->getName() == data)
 	{
+		
 		this->first = temp->next;
 		free(temp);
 		this->goodsCounter -= 1;
@@ -90,22 +78,21 @@ void ShopItem::DeleteItem(string data) {
 	prev->next = temp->next;
 	this->goodsCounter -= 1;
 	free(temp);
+	*/
+	this->pLst = this->lst.begin();
+	while (this->pLst != this->lst.end()) {
+		if ((*(this->pLst))->getName() == data) {
+			this->lst.erase(this->pLst);
+			return;
+		}
+		this->pLst++;
+	}
 }
 void ShopItem::deleteList()
 {
-	Item* p = this->first;
-	while (p->next != NULL)
-	{
-		Item* tmp;
-		tmp = p;
-		p = p->next;
-		delete tmp;
-	}
-	p = p->next;
-	delete p;
-	this->first = NULL;
+	this->lst.clear();
 }
-Item* ShopItem::operator[] (string name) {
+/*Item* ShopItem::operator[] (string name) {
 	Item* tmp = this->first;
 	while (tmp) {
 		if (name == tmp->item->getName()) {
@@ -114,23 +101,22 @@ Item* ShopItem::operator[] (string name) {
 		tmp = tmp->next;
 	}
 	return 0;
-}
+}*/
 float ShopItem::totalPrice() {
-	Item* tmp = this->first;
 	float total = 0;
-	while (tmp) {
-		total += tmp->item->getPrice();
-		tmp = tmp->next;
+	this->pLst = this->lst.begin();
+	while (this->pLst != this->lst.end()) {
+		total += (*(this->pLst))->getPrice();
+		this->pLst++;
 	}
 	return total;
 }
 bool ShopItem::isExist(string name) {
-	Item* tmp = this->first;
-	while (tmp != NULL) {
-		if (name == tmp->item->getName()) {
+	this->pLst = this->lst.begin();
+	while (this->pLst != this->lst.end()) {
+		if ((*(this->pLst))->getName() == name)
 			return true;
-		}
-		tmp = tmp->next;
+		this->pLst++;
 	}
 	return false;
 }
@@ -142,14 +128,14 @@ ostream& operator << (ostream& out, ShopItem& item) {
 }
 ShopItem& ShopItem::operator= (const ShopItem& str)
 {
-	// Если m_data уже имеет значение, то удаляем это значение
+/*	// Если m_data уже имеет значение, то удаляем это значение
 	if (this->first) {
 		delete[] this->first;
  	}
 	this->first = str.first;
 	this->goodsCounter = str.goodsCounter;
 	this->street = str.street;
-	
+	*/
 	return *this;
 }
 bool ShopItem::operator==(const ShopItem& item) {
@@ -165,9 +151,9 @@ ShopItem& ShopItem::operator - (string name) {
 int ShopItem::getShopsCounter() {
 	return allShopsCounter;
 }
-ShopItem& ShopItem::operator--() {
-	ShopItem::allShopsCounter - 1;
-	return *this;
+int ShopItem::decrCounter() {
+	allShopsCounter -= 1;
+	return allShopsCounter;
 }
 /*
 Item* Shop::sort()

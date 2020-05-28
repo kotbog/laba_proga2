@@ -4,7 +4,7 @@ class Computer : public Good
 {
 public:
 	Computer();
-	~Computer();
+	virtual ~Computer();
 	Computer(string, string, string, float);
 	Computer(const Computer&);
 	virtual void Print() = 0;

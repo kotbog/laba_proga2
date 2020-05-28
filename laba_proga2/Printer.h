@@ -4,7 +4,7 @@ class Printer : public Good
 {
 public:
 	Printer();
-	~Printer();
+	virtual ~Printer();
 	Printer(bool, float, float, string);
 	bool getFax();
 	float getWeight();

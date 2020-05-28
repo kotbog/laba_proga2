@@ -20,6 +20,7 @@ ShopItem* searchByAddress(Shop& store) {
 void showMenu(Shop& store) {
 	int way = 0;
 	string str;
+	cout << "0. Exit\n";
 	cout << "1. Add store\n";
 	cout << "2. Add good\n";
 	cout << "3. Show all stores\n";
@@ -78,7 +79,7 @@ void showMenu(Shop& store) {
 
 		}
 		else {
-			cout << "There already is this shop";
+			cout << "Error!\n";
 		}
 	}
 	else if(way == 3){
@@ -92,7 +93,8 @@ void showMenu(Shop& store) {
 		ShopItem* item = searchByAddress(store);
 		cout << "Name: ";
 		cin >> str;
-		*item - str;
+		item->DeleteItem(str);
+		//*item - str;
 
 	}
 	else if (way == 6) {
@@ -103,6 +105,9 @@ void showMenu(Shop& store) {
 	else if (way == 7) {
 		ShopItem* item = searchByAddress(store);
 		store.deleteShop(item);
+	}
+	else if (way == 0) {
+		exit(0);
 	}
 	else{
 		cout << "Error!!! Try again!\n";
