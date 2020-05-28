@@ -24,6 +24,7 @@ ShopItem::ShopItem(string streetName) { // конструктор з параметром
 
 
 void ShopItem::addGood(Good* item) {
+	this->goodsCounter++;
 	this->lst.push_back(item);
 }
 
