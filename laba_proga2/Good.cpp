@@ -30,3 +30,6 @@ void Good::setPrice(float price) {
 	this->price = price;
 }
 
+Good::Good(const Good& item) : nameGood(item.nameGood), price(item.price)
+{
+}

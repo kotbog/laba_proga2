@@ -32,7 +32,8 @@ public:
 	bool operator == (const ShopItem& item);
 	ShopItem& operator - (string name);
 	static int getShopsCounter();
-	static int decrCounter();
+	static void decrCounter(); // збільшити allShopsCounter
+	static void incrCounter(); // зменшити allShopsCounter
 private:
 	string street;
 	// Item* first;

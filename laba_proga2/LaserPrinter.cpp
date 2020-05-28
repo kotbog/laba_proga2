@@ -14,6 +14,9 @@ LaserPrinter::LaserPrinter(bool duplex, int speed, bool fax, float weight, float
 		this->Speed = speed;
 	}
 }
+LaserPrinter::LaserPrinter(const LaserPrinter& item) : Speed(item.Speed), Duplex(item.Duplex), Printer(item)
+{
+}
 bool LaserPrinter::getDublex() {
 	return this->Duplex;
 }

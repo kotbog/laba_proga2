@@ -16,7 +16,9 @@ Laptop::Laptop(string name, string processor, string videocard, float price, flo
 		this->Diagonal = diagonal;
 	}
 }
-
+Laptop::Laptop(const Laptop& item) : Diagonal(item.Diagonal), Webcam(item.Webcam), Computer(item)
+{
+}
 bool Laptop::GetWebcam() { 
 	return this->Webcam;
 }

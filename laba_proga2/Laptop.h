@@ -7,6 +7,7 @@ public:
 	Laptop();
 	~Laptop();
 	Laptop(string, string, string, float, float, bool);
+	Laptop(const Laptop&);
 	bool GetWebcam(); // повертає значення оперативної пам'яті
 	double GetDiagonal(); // повертає значення оперативної діагональ
 	virtual void Print() override;

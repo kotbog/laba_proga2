@@ -21,3 +21,6 @@ bool Printer::getFax() {
 float Printer::getWeight() {
 	return this->Weight;
 }
+Printer::Printer(const Printer& item) : Fax(item.Fax), Weight(item.Weight), Good(item)
+{
+}

@@ -7,8 +7,11 @@ Desktop::Desktop() {
 	this->Power = 0;
 	this->Weight = 0.0;
 }
-
-Desktop::~Desktop() {
+Desktop::Desktop(const Desktop& item) : Power(item.Power), Weight(item.Weight), Computer(item) 
+{
+}
+Desktop::~Desktop() 
+{
 }
 
 Desktop::Desktop(string name, string processor, string videocard, float price, float weight, int power) : Computer(processor, videocard, name, price) {

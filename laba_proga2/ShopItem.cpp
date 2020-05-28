@@ -6,11 +6,10 @@
 using namespace std;
 
 int ShopItem::allShopsCounter = 0;
-
 ShopItem::ShopItem() : street(""), goodsCounter(0)
 {
 	this->pLst = this->lst.begin();
-	//this->allShopsCounter++;
+	//ShopItem::allShopsCounter++;
 }
 ShopItem::~ShopItem() {
 
@@ -19,7 +18,7 @@ ShopItem::ShopItem(string streetName) { // конструктор з параметром
 	this->street = streetName;
 	this->goodsCounter = 0;
 	this->pLst = this->lst.begin();
-	//this->allShopsCounter++;
+	//ShopItem::allShopsCounter++;
 }
 
 
@@ -151,9 +150,11 @@ ShopItem& ShopItem::operator - (string name) {
 int ShopItem::getShopsCounter() {
 	return allShopsCounter;
 }
-int ShopItem::decrCounter() {
+void ShopItem::decrCounter() {
 	allShopsCounter -= 1;
-	return allShopsCounter;
+}
+void ShopItem::incrCounter() {
+	allShopsCounter += 1;
 }
 /*
 Item* Shop::sort()

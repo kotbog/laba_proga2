@@ -16,6 +16,7 @@ Shop::Shop(string name) {
 
 void Shop::addShop(ShopItem& item) {
 	this->shops.push_back(item);
+	ShopItem::incrCounter();
 }
 void Shop::showAll() {
 	cout << "Number of shops: " << ShopItem::getShopsCounter() << endl;
@@ -42,8 +43,8 @@ void Shop::checkGood(string name) {
 void Shop::deleteShop(ShopItem* item) {
 	for (int i = 0; i < this->shops.size(); i++) {
 		if (shops[i] == *item) {
-			ShopItem::decrCounter();
 			shops.erase(shops.begin() + i);
+			ShopItem::decrCounter();
 			return;
 		}
 	}

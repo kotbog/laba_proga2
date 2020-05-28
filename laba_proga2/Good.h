@@ -10,6 +10,7 @@ public:
 	Good(); // конструктор за замовчуванням
 	virtual ~Good();
 	Good(string, float);
+	Good(const Good&);
 	string getName();
 	float getPrice();
 	virtual void Print() = 0;

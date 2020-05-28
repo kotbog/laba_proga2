@@ -4,6 +4,7 @@ class LaserPrinter : public Printer
 {
 public:
 	LaserPrinter();
+	LaserPrinter(const LaserPrinter&);
 	~LaserPrinter();
 	LaserPrinter(bool duplex, int speed, bool fax, float weight, float price, string name);
 	bool getDublex();

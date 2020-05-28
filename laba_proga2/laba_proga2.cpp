@@ -124,26 +124,6 @@ int main()
 	cin >> text;
 	Shop store(text);
 	showMenu(store);
-	/*ShopItem new_store("Pushkina 5");
-	store.addShop(new_store);
-	ShopItem new_store2("Polytechnichna 1");
-	store.addShop(new_store2);
-	Laptop lptp1("HP Pavilion", "Intel Core-M", "AMD", 1000, 13, true);
-	Desktop desk1("HyperPc", "Intel", "AMD", 1400, 2, 700);
-	InkPrinter iprint(true, 4, true, 1.5, 500, "Canon");
-	LaserPrinter lprint(false, 24, true, 1.2, 700, "Epson");
-	LaserPrinter a = lprint;
-	new_store2.addGood(&iprint);
-	new_store.addGood(&lptp1);
-	new_store.addGood(&iprint);
-	new_store.addGood(&a);
-	new_store.addGood(&desk1);
-	new_store.showGoods();
-	if (new_store.isExist("Canon")) {
-		cout << 1 << endl;
-	}
-	store.checkGood("Canon");
-	cout << "Total: " << new_store.totalPrice();*/
 	return 0;
 }
 
