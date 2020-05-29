@@ -24,9 +24,9 @@ int LaserPrinter::getSpeed() {
 	return this->Speed;
 }
 void LaserPrinter::Print() {
-	cout << "Name: " << this->nameGood << "\tPrice: " << this->price << endl;
-	cout << "Fax: " << this->Fax << "\tWeight: " << this->Weight << endl;
-	cout << "Duplex: " << this->Duplex << "\tSpeed: " << this->Speed << " p/m\n" << endl;
+	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << endl;
+	cout << "Fax: " << this->Fax << "\nWeight: " << this->Weight << endl;
+	cout << "Duplex: " << this->Duplex << "\nSpeed: " << this->Speed << " p/m\n" << endl;
 }
 
 bool LaserPrinter::operator == (LaserPrinter& item) {

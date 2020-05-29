@@ -33,7 +33,6 @@ ShopItem* Shop::searchObj(const ShopItem& item) {
 	return NULL;
 }
 void Shop::checkGood(string name) {
-	cout << name;
 	for (int i = 0; i < this->shops.size(); i++) {
 		if (this->shops[i].isExist(name)) {
 			cout << this->shops[i];

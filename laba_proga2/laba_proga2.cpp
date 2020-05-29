@@ -26,7 +26,7 @@ void showMenu(Shop& store) {
 	cout << "3. Show all stores\n";
 	cout << "4. Show all goods\n";
 	cout << "5. Delete good\n";
-	cout << "6. Ñheck availability\n";
+	cout << "6. Check availability\n";
 	cout << "7. Delete Shop\n";
 	cout << "Choose: ";
 	cin >> way;
