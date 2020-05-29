@@ -1,41 +1,44 @@
-#include "Desktop.h"
+/*#include "Desktop.h"
 #include <iostream>
 
 using namespace std;
 
-Desktop::Desktop() {
+template <typename T>
+Desktop<T>::Desktop() {
 	this->Power = 0;
 	this->Weight = 0.0;
 }
-Desktop::Desktop(const Desktop& item) : Power(item.Power), Weight(item.Weight), Computer(item) 
+template <typename T>
+Desktop<T>::Desktop(const Desktop& item) : Power(item.Power), Weight(item.Weight), Computer(item) 
 {
 }
-Desktop::~Desktop() 
+template <typename T>
+Desktop<T>::~Desktop() 
 {
 }
-
-Desktop::Desktop(string name, string processor, string videocard, float price, float weight, int power) : Computer(processor, videocard, name, price) {
+template <typename T>
+Desktop<T>::Desktop(string name, string processor, string videocard, float price, float weight, T power) : Computer(processor, videocard, name, price) {
 	if (weight > 0 && power > 0) {
 		this->Power = power;
 		this->Weight = weight;
 	}
 }
 
-
-int Desktop::getPower() {
+template <typename T>
+T Desktop<T>::getPower() {
 	return this->Power;
 }
-
-float Desktop::getWeight() {
+template <typename T>
+float Desktop<T>::getWeight() {
 	return this->Weight;
 }
-
-void Desktop::Print() {
+template <typename T>
+void Desktop<T>::Print() {
 	cout << "Name: " << this->nameGood << "\nPrice: " << this->price << "\nProcessor: " << this->Processor << "\nVideocard: " << this->Videocard << endl;
 	cout << "Weight: " << this->Weight << "\nPower: " << this->Power << endl;
 }
-
-Desktop& Desktop::operator = (Desktop& str) {
+template <typename T>
+Desktop<T>& Desktop<T>::operator = (Desktop<T>& str) {
 	this->Weight = str.Weight;
 	this->Videocard = str.Videocard;
 	this->nameGood = str.nameGood;
@@ -44,8 +47,8 @@ Desktop& Desktop::operator = (Desktop& str) {
 	this->Power = str.Power;
 	return *this;
 }
-
-istream& operator>> (istream& in, Desktop& item)
+template <typename T>
+istream& operator>> (istream& in, Desktop<T>& item)
 {
 	in >> item.nameGood;
 	in >> item.price;
@@ -56,4 +59,4 @@ istream& operator>> (istream& in, Desktop& item)
 ///"Input with an ENTER( nameGood, price, Processor, Videocard, Power, Weight ): \n"
 
 	return in;
-}
+}*/
