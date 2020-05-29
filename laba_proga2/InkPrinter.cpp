@@ -29,7 +29,7 @@ void InkPrinter::Print() {
 InkPrinter::InkPrinter(const InkPrinter& item) : Colors(item.Colors), PhotoPrint(item.PhotoPrint), Printer(item)
 {
 }
-/*InkPrinter& InkPrinter::operator= (const InkPrinter& str)
+InkPrinter& InkPrinter::operator= (const InkPrinter& str)
 {
 	this->Colors = str.Colors;
 	this->PhotoPrint = str.PhotoPrint;
@@ -38,7 +38,7 @@ InkPrinter::InkPrinter(const InkPrinter& item) : Colors(item.Colors), PhotoPrint
 	this->Fax = str.Fax;
 	this->Weight = str.Weight;
 	return *this;
-}*/
+}
 istream& operator>> (istream& in, InkPrinter& item)
 {
 	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point

@@ -10,7 +10,7 @@ public:
 	int getColors();
 	bool getPhotoPrint();
 	void Print() override;
-	//InkPrinter& operator= (const InkPrinter& str);
+	InkPrinter& operator= (const InkPrinter& str);
 	friend istream& operator>> (istream& in, InkPrinter& item);
 private:
 	bool PhotoPrint;

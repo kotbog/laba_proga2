@@ -14,8 +14,6 @@ public:
 	string getName();
 	float getPrice();
 	virtual void Print() = 0;
-	void setName(string name);
-	void setPrice(float price);
 protected:
 	string nameGood; 
 	float price;

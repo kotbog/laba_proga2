@@ -23,13 +23,6 @@ string Good::getName() {
 float Good::getPrice() {
 	return this->price;
 }
-void Good::setName(string name) {
-	this->nameGood = name;
-}
-void Good::setPrice(float price) {
-	this->price = price;
-}
-
 Good::Good(const Good& item) : nameGood(item.nameGood), price(item.price)
 {
 }
