@@ -95,7 +95,6 @@ void showMenu(Shop& store) {
 		cin >> str;
 		item->DeleteItem(str);
 		//*item - str;
-
 	}
 	else if (way == 6) {
 		cout << "Name: ";

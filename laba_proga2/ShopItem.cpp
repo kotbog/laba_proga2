@@ -49,9 +49,11 @@ void ShopItem::showGoods()
 	}*/
 	this->pLst = this->lst.begin();
 	while (this->pLst != this->lst.end()) {
+		cout << "********************" << endl;
 		(*(this->pLst))->Print();
 		this->pLst++;
 	}
+	cout << "********************" << endl;
 }
 void ShopItem::DeleteItem(string data) {
 	/*
@@ -83,6 +85,7 @@ void ShopItem::DeleteItem(string data) {
 	while (this->pLst != this->lst.end()) {
 		if ((*(this->pLst))->getName() == data) {
 			this->lst.erase(this->pLst);
+			this->goodsCounter--;
 			return;
 		}
 		this->pLst++;
@@ -139,7 +142,7 @@ ShopItem& ShopItem::operator= (const ShopItem& str)
 	return *this;
 }
 bool ShopItem::operator==(const ShopItem& item) {
-	if (this->street == item.street && this->goodsCounter == item.goodsCounter) {
+	if (this->street == item.street) {
 		return 1;
 	}
 	return 0;

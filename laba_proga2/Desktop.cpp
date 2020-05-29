@@ -47,12 +47,13 @@ Desktop& Desktop::operator = (Desktop& str) {
 
 istream& operator>> (istream& in, Desktop& item)
 {
-	
+	in >> item.nameGood;
 	in >> item.price;
 	in >> item.Processor;
 	in >> item.Videocard;
 	in >> item.Power;
 	in >> item.Weight;
+///"Input with an ENTER( nameGood, price, Processor, Videocard, Power, Weight ): \n"
 
 	return in;
 }

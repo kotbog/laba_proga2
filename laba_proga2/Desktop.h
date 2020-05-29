@@ -14,7 +14,7 @@ public:
 	Desktop& operator = (Desktop&);
 	friend istream& operator>> (istream& in, Desktop& item);
 private:
-	int Weight;
-	float Power;
+	float Weight;
+	int Power;
 };
 
