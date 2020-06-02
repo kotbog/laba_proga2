@@ -41,13 +41,17 @@ Laptop& Laptop::operator= (Laptop& str) {
 }
 istream& operator>> (istream& in, Laptop& item)
 {
-	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
-	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	cout << "Name: ";
 	in >> item.nameGood;
+	cout << "Price: ";
 	in >> item.price;
+	cout << "Processor: ";
 	in >> item.Processor;
+	cout << "Videocard: ";
 	in >> item.Videocard;
+	cout << "Diagonal: ";
 	in >> item.Diagonal;
+	cout << "Webcam(bool): ";
 	in >> item.Webcam;
 
 	return in;

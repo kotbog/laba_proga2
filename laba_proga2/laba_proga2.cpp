@@ -7,6 +7,7 @@
 #include "LaserPrinter.h"
 #include "ShopItem.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 ShopItem* searchByAddress(Shop& store) {
@@ -17,6 +18,67 @@ ShopItem* searchByAddress(Shop& store) {
 	ShopItem* item = store.searchObj(str);
 	return item;
 }
+
+
+void addGoodFromConsole(Shop& store, int way) {
+	ShopItem* item = searchByAddress(store);
+	if (item) {
+
+		if (way == 1) {
+			Laptop* good = new Laptop();
+			cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Diagonal, Webcam ): \n";
+			cin >> *(good);
+			item->addGood(good);
+		}
+		else if (way == 2) {
+			Desktop* good = new Desktop();
+			cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Power, Weight ): \n";
+			cin >> *(good);
+			item->addGood(good);
+		}
+		else if (way == 3) {
+			LaserPrinter* good = new LaserPrinter();
+			cout << "Input with an ENTER( nameGood, price, Fax(bool), Speed, Duplex, Weight ): \n";
+			cin >> *(good);
+			item->addGood(good);
+		}
+		else if (way == 4) {
+			InkPrinter* good = new InkPrinter();
+			cout << "Input with an ENTER( nameGood, price, Fax(bool), PhotoPrint(bool), Colors, Weight ): \n";
+			cin >> *(good);
+			item->addGood(good);
+		}
+
+	}
+	else {
+		cout << "Error!\n";
+	}
+}
+/*int addGoodFromFile() {
+	int num;
+	ifstream fin("goods.txt");
+	if (!fin.is_open()) {
+		cout << "ERROR!!!" << endl;
+		return -1;
+	}
+	else {
+		//fin >> name;
+		while (!fin.eof()) {
+			fin >> num;
+			cout << num << endl;
+		}
+		fin.close();
+	}
+}*/
+
+
+
+
+
+
+
+
+/*---------------------------------*/
 void showMenu(Shop& store) {
 	int way = 0;
 	string str;
@@ -44,43 +106,13 @@ void showMenu(Shop& store) {
 		}
 	}
 	else if(way == 2){
-		ShopItem* item = searchByAddress(store);
-		if (item) {
-			cout << "What would you want to add?" << endl;
-			cout << "1. Laptop\n";
-			cout << "2. Desktop\n";
-			cout << "3. Laser Printer\n";
-			cout << "4. Ink Printer\n";
-			cin >> way;
-			if (way == 1) {
-				Laptop* good = new Laptop();
-				cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Diagonal, Webcam ): \n";
-				cin >> *(good);
-				item->addGood(good);
-			}
-			else if (way == 2) {
-				Desktop<int, float>* good = new Desktop<int, float>();
-				cout << "Input with an ENTER( nameGood, price, Processor, Videocard, Power, Weight ): \n";
-				cin >> *(good);
-				item->addGood(good);
-			}
-			else if (way == 3) {
-				LaserPrinter* good = new LaserPrinter();
-				cout << "Input with an ENTER( nameGood, price, Fax(bool), Speed, Duplex, Weight ): \n";
-				cin >> *(good);
-				item->addGood(good);
-			}
-			else if (way == 4) {
-				InkPrinter* good = new InkPrinter();
-				cout << "Input with an ENTER( nameGood, price, Fax(bool), PhotoPrint(bool), Colors, Weight ): \n";
-				cin >> *(good);
-				item->addGood(good);
-			}
-
-		}
-		else {
-			cout << "Error!\n";
-		}
+		cout << "What would you want to add?" << endl;
+		cout << "1. Laptop\n";
+		cout << "2. Desktop\n";
+		cout << "3. Laser Printer\n";
+		cout << "4. Ink Printer\n";
+		cin >> way;
+		addGoodFromConsole(store, way);
 	}
 	else if(way == 3){
 		store.showAll();

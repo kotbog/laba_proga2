@@ -47,13 +47,17 @@ LaserPrinter& LaserPrinter::operator= (const LaserPrinter& str)
 }
 istream& operator>> (istream& in, LaserPrinter& item)
 {
-	// Поскольку operator>> является другом класса Point, то мы имеем прямой доступ к членам Point
-	// Обратите внимание, параметр point (объект класса Point) должен быть не константным, чтобы мы имели возможность изменить члены класса
+	cout << "Name: ";
 	in >> item.nameGood;
+	cout << "Price: ";
 	in >> item.price;
+	cout << "Fax: ";
 	in >> item.Fax;
+	cout << "Speed: ";
 	in >> item.Speed;
+	cout << "Duplex(Bool): ";
 	in >> item.Duplex;
+	cout << "Weight: ";
 	in >> item.Weight;
 
 	return in;

@@ -4,14 +4,6 @@
 #include <list>
 
 using namespace std;
-/*
-struct Item
-{
-	Good* item;
-	Item* next; // вказівник на наступний елемент
-};
-*/
-
 
 class ShopItem
 {
