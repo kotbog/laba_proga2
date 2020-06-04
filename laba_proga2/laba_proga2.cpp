@@ -413,6 +413,85 @@ void showMenu(Shop& store) {
 	cout << "7. Delete Shop\n";
 	cout << "Choose: ";
 	cin >> way;
+	switch (way)
+	{
+	case 1:
+	{
+		cout << "Address: ";
+		cin.ignore();
+		getline(cin, str);
+		ShopItem* item = new ShopItem(str);
+		if (store.searchObj(str) == NULL) {
+			store.addShop(*item);
+		}
+		addGoodFromFile(store);
+		showMenu(store);
+		break;
+	}
+	case 2:
+	{
+		cout << "What would you want to add?" << endl;
+		cout << "1. Laptop\n";
+		cout << "2. Desktop\n";
+		cout << "3. Laser Printer\n";
+		cout << "4. Ink Printer\n";
+		cin >> way;
+		addGoodFromConsole(store, way);
+		showMenu(store);
+		break;
+	}
+	case 3: 
+	{
+		store.showAll();
+		showMenu(store);
+		break;
+	}
+	case 4: 
+	{
+		ShopItem* item = searchByAddress(store);
+		if (item) {
+			item->showGoods();
+		}
+		showMenu(store);
+		break;
+	}
+	case 5: 
+	{
+		ShopItem* item = searchByAddress(store);
+		if (item) {
+			cout << "Name: ";
+			cin >> str;
+			item->DeleteItem(str);
+		}
+		//*item - str;
+		showMenu(store);
+		break;
+	}
+	case 6: 
+	{
+		cout << "Name: ";
+		cin >> str;
+		store.checkGood(str);
+		showMenu(store);
+		break;
+	}
+	case 7:
+	{
+		ShopItem* item = searchByAddress(store);
+		store.deleteShop(item);
+		showMenu(store);
+		break;
+	}
+	case 0: 
+	{
+		return;
+	}
+	default:
+		cout << "Enter error! TRY AGAIN!!!" << endl;
+		showMenu(store);
+		break;
+	}
+	/*
 	if (way == 1) {
 		cout << "Address: ";
 		cin.ignore();
@@ -466,6 +545,7 @@ void showMenu(Shop& store) {
 		return;
 	}
 	showMenu(store);
+	*/
 }
 
 
