@@ -24,9 +24,9 @@ void Shop::showAll() {
 		cout << shops[i];
 	}
 }
-ShopItem* Shop::searchObj(const ShopItem& item) {
+ShopItem* Shop::searchObj(string street) {
 	for (int i = 0; i < this->shops.size(); i++) {
-		if (this->shops[i] == item) {
+		if (this->shops[i].getStreet() == street) {
 			return &(this->shops[i]);
 		}
 	}

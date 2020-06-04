@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 
 ShopItem* searchByAddress(Shop& store) {
 	string str;
@@ -18,6 +19,124 @@ ShopItem* searchByAddress(Shop& store) {
 	ShopItem* item = store.searchObj(str);
 	return item;
 }
+/*
+void addDesktop(Shop& store, ifstream &fin) {
+	string name, processor, videocard;
+	float weight, price;
+	int power;
+	//string name, string processor, string videocard, float price, float weight, int power
+	ShopItem* item = searchByAddressFile(store, fin);
+	if (item){ 
+		getline(fin, name);
+		getline(fin, processor);
+		getline(fin, videocard);
+		fin >> price;
+		fin >> weight;
+		fin >> power;
+		Desktop* good = new Desktop(name, processor, videocard, price, weight, power);
+		item->addGood(good);
+	}
+	else {
+		cout << "Error!" << endl;
+	}
+}
+
+void addLaptop(Shop& store, ifstream& fin) {
+	string name, processor, videocard;
+	float diagonal, price;
+	bool webcam;
+	ShopItem* item = searchByAddressFile(store, fin);
+	if (item) {
+		getline(fin, name);
+		getline(fin, processor);
+		getline(fin, videocard);
+		fin >> price;
+		fin >> diagonal;
+		fin >> webcam;
+		Laptop* good = new Laptop(name, processor, videocard, price, diagonal, webcam);
+		item->addGood(good);
+	}
+	else {
+		cout << "Error!" << endl;
+	}
+}
+void addLaserPrinter(Shop& store, ifstream& fin) {
+	string name;
+	int speed;
+	float weight, price;
+	bool fax;
+	bool duplex;
+	ShopItem* item = searchByAddressFile(store, fin);
+	//bool duplex, int speed, bool fax, float weight, float price, string name
+	if (item) {
+		getline(fin, name);
+		fin >> price;
+		fin >> weight;
+		fin >> fax;
+		fin >> duplex;
+		fin >> speed;
+		LaserPrinter* good = new LaserPrinter(duplex, speed, fax, weight, price, name);
+		item->addGood(good);
+	}
+	else {
+		cout << "Error!" << endl;
+	}
+}
+
+void addInkPrinter(Shop& store, ifstream& fin) {
+	string name;
+	int colors;
+	float weight, price;
+	bool fax, photoprint;
+	ShopItem* item = searchByAddressFile(store, fin);
+	//bool duplex, int speed, bool fax, float weight, float price, string name
+	if (item) {
+		getline(fin, name);
+		fin >> price;
+		fin >> weight;
+		fin >> fax;
+		fin >> colors;
+		fin >> photoprint;
+		InkPrinter* good = new InkPrinter(photoprint, colors, fax, weight, price, name);
+		item->addGood(good);
+	}
+	else {
+		cout << "Error!" << endl;
+	}
+}
+
+void addGoodFromFile(Shop& store) {
+	string way;
+	ifstream fin("goods.txt");
+
+	if (!fin) {
+		cout << "File Error!" << endl;
+		return;
+	}
+	while (!fin.eof()) {
+		fin >> way;
+		ShopItem* item = searchByAddressFile(store, fin);
+		if (item) {
+			if (way == "laptop") {
+				addLaptop(store, fin);
+			}
+			else if (way == "desktop") {
+				addDesktop(store, fin);
+			}
+			else if (way == "inkprinter") {
+				addInkPrinter(store, fin);
+			}
+			else if (way == "laserprinter") {
+				addLaserPrinter(store, fin);
+			}
+		}
+		else {
+			cout << "Error!\n";
+		}
+	}
+}*/
+
+
 
 
 void addGoodFromConsole(Shop& store, int way) {
@@ -48,10 +167,212 @@ void addGoodFromConsole(Shop& store, int way) {
 			cin >> *(good);
 			item->addGood(good);
 		}
-
 	}
 	else {
 		cout << "Error!\n";
+	}
+}
+void add_laptop(ifstream &file, Shop &store) {
+	string line;//Строчка текста
+	while (getline(file, line, '\n'))
+	{
+		//cout << line << endl;//Можно посмотреть, что в строчке считалось
+
+		//Теперь в line хранится содержимое строчки из файла.
+		//Будем её разбирать на составные части.
+
+		//В нашем файле идут две строчки, а потом два числа
+		
+		string name, processor, videocard, street;
+		float diagonal, price;
+		bool webcam;
+
+		//Создадим поток для считывания данных из строчки
+		istringstream iss(line);
+
+		string token;
+		int i = 0;
+		while (getline(iss, token, ',')) {
+			if (i == 0) street = token;
+			if (i == 1) name = token;
+			if (i == 2) processor = token;
+			if (i == 3) videocard = token;//перевод string в int
+			if (i == 4) price = atof(token.c_str());//перевод string в float
+			if (i == 5) diagonal = atof(token.c_str());//перевод string в int
+			if (i == 6) webcam = atoi(token.c_str());//перевод string в int
+			i++;
+		}
+		Laptop* good = new Laptop(name, processor, videocard, price, diagonal, webcam);
+		ShopItem* item = store.searchObj(street);
+		if (item) {
+			item->addGood(good);
+		}
+		else {
+			ShopItem* item2 = new ShopItem(street);
+			item2->addGood(good);
+			store.addShop(*item2);
+		}
+		break;
+	}
+}
+void add_desktop(ifstream& file, Shop& store) {
+	string line;//Строчка текста
+	while (getline(file, line, '\n'))
+	{
+		//cout << line << endl;//Можно посмотреть, что в строчке считалось
+
+		//Теперь в line хранится содержимое строчки из файла.
+		//Будем её разбирать на составные части.
+
+		//В нашем файле идут две строчки, а потом два числа
+		string name, processor, videocard, street;
+		float weight, price;
+		int power;
+
+		//Создадим поток для считывания данных из строчки
+		istringstream iss(line);
+
+		string token;
+		int i = 0;
+		while (getline(iss, token, ',')) {
+			if (i == 0) street = token;
+			if (i == 1) name = token;
+			if (i == 2) processor = token;
+			if (i == 3) videocard = token;//перевод string в int
+			if (i == 4) price = atof(token.c_str());//перевод string в float
+			if (i == 5) weight = atof(token.c_str());//перевод string в int
+			if (i == 6) power = atoi(token.c_str());//перевод string в int
+			i++;
+		}
+		Desktop* good = new Desktop(name, processor, videocard, price, weight, power);
+		ShopItem* item = store.searchObj(street);
+		if (item) {
+			item->addGood(good);
+		}
+		else {
+			ShopItem* item2 = new ShopItem(street);
+			item2->addGood(good);
+			store.addShop(*item2);
+		}
+		break;
+	}
+}
+void add_inkPrinter(ifstream& file, Shop& store) {
+	string line;//Строчка текста
+	while (getline(file, line, '\n'))
+	{
+		//cout << line << endl;//Можно посмотреть, что в строчке считалось
+
+		//Теперь в line хранится содержимое строчки из файла.
+		//Будем её разбирать на составные части.
+
+		//В нашем файле идут две строчки, а потом два числа
+
+		string name, street;
+		int colors;
+		float weight, price;
+		bool fax, photoprint;
+
+		//Создадим поток для считывания данных из строчки
+		istringstream iss(line);
+
+		string token;
+		int i = 0;
+		while (getline(iss, token, ',')) {
+			if (i == 0) street = token;
+			if (i == 1) name = token;
+			if (i == 2) fax = atoi(token.c_str());
+			if (i == 3) weight = atof(token.c_str());
+			if (i == 4) price = atof(token.c_str());
+			if (i == 5) photoprint = atoi(token.c_str());
+			if (i == 6) colors = atoi(token.c_str());//перевод string в int
+			i++;
+		}
+		InkPrinter* good = new InkPrinter(photoprint, colors, fax, weight, price, name);
+		ShopItem* item = store.searchObj(street);
+		if (item) {
+			item->addGood(good);
+		}
+		else {
+			ShopItem* item2 = new ShopItem(street);
+			item2->addGood(good);
+			store.addShop(*item2);
+		}
+		break;
+	}
+}
+void add_laserPrinter(ifstream& file, Shop& store) {
+	string line;//Строчка текста
+	while (getline(file, line, '\n'))
+	{
+		//cout << line << endl;//Можно посмотреть, что в строчке считалось
+
+		//Теперь в line хранится содержимое строчки из файла.
+		//Будем её разбирать на составные части.
+
+		//В нашем файле идут две строчки, а потом два числа
+
+		string name, street;
+		int speed;
+		float weight, price;
+		bool fax;
+		bool duplex;
+
+		//Создадим поток для считывания данных из строчки
+		istringstream iss(line);
+
+		string token;
+		int i = 0;
+		while (getline(iss, token, ',')) {
+			if (i == 0) street = token;
+			if (i == 1) name = token;
+			if (i == 2) fax = atoi(token.c_str());
+			if (i == 3) weight = atof(token.c_str());
+			if (i == 4) price = atof(token.c_str());
+			if (i == 5) duplex = atoi(token.c_str());
+			if (i == 6) speed = atoi(token.c_str());//перевод string в int
+			i++;
+		}
+		LaserPrinter* good = new LaserPrinter(duplex, speed, fax, weight, price, name);
+		ShopItem* item = store.searchObj(street);
+		if (item) {
+			item->addGood(good);
+		}
+		else {
+			ShopItem* item2 = new ShopItem(street);
+			item2->addGood(good);
+			store.addShop(*item2);
+		}
+		break;
+	}
+}
+void addGoodFromFile(Shop &store) {
+
+	ifstream file("goods.txt");
+
+	if (file.is_open())//Если открытие файла прошло успешно
+	{
+		cout << "Read from file." << endl;
+
+		string line;//Строчка текста
+		while (!file.eof()) {
+			getline(file, line, ',');
+			if (line == "laptop") {
+				add_laptop(file, store);
+			}
+			else if (line == "desktop") {
+				add_desktop(file, store);
+			}else if(line == "ink-printer") {
+				add_inkPrinter(file, store);
+			}
+			else if(line == "laser-printer"){
+				add_laserPrinter(file, store);
+			}
+		}
+	}
+	else
+	{
+		cout << "File error." << endl;
 	}
 }
 /*int addGoodFromFile() {
@@ -97,11 +418,11 @@ void showMenu(Shop& store) {
 		cin.ignore();
 		getline(cin, str);
 		ShopItem* item = new ShopItem(str);
-		if (store.searchObj(*item) == NULL) {
+		if (store.searchObj(str) == NULL) {
 			store.addShop(*item);
+			addGoodFromFile(store);
 		}
 		else {
-			store.deleteShop(item);
 			cout << "Error! There is already " << str << endl;
 		}
 	}

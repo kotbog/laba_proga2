@@ -16,7 +16,7 @@ public:
 	void checkGood(string name);
 	void deleteShop(ShopItem*);
 	void showAll();
-	ShopItem* searchObj(const ShopItem& item);
+	ShopItem* searchObj(string);
 private:
 	//T phoneNumber;
 	string Name;

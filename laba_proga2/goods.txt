@@ -1,3 +1,8 @@
-1
-2
-3
+laptop,Pushkina 5,Acer,Intel,Nvidia,1200,14,0
+laptop,Symonenka 189,Acer,Intel,Nvidia,1250,14,1
+laptop,Shevchenka 120,Acer,Intel,Nvidia,1250,14,1
+laptop,Shevchenka 120,Acer,Intel,Nvidia,1250,14,1
+desktop,Symonenka 189,hyperpc,Intel,Nvidia,2000,5.2,700
+desktop,Symonenka 189,hyperpc,Intel,Nvidia,2000,5.2,760
+ink-printer,Symonenka 189,Canon,0,2,300,0,4
+laser-printer,Symonenka 189,Epson,0,2,300,0,14
