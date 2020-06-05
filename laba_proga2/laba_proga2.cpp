@@ -462,8 +462,8 @@ void showMenu(Shop& store) {
 			cout << "Name: ";
 			cin >> str;
 			item->DeleteItem(str);
+			//*item - str;
 		}
-		//*item - str;
 		showMenu(store);
 		break;
 	}
